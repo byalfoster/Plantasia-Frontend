@@ -1,11 +1,9 @@
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-
-
-
-import Main from "./components/Main";
-import DrawerAppBar from "./components/Navbar";
-import LoginForm from "./components/LoginForm";
+import LandingPage from "./pages/LandingPage";
+import NavBar from "./components/Navbar";
+import RegisterForm from "./pages/RegisterForm";
+import Login from "./pages/Login";
 
 
 
@@ -13,9 +11,14 @@ import LoginForm from "./components/LoginForm";
 function App() {
   return (
     <div className="App">
-      <DrawerAppBar/>
-      <Main/>
-      <LoginForm/>
+        <Router>
+      <NavBar />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
 
    
     </div>

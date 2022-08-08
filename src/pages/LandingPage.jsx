@@ -1,8 +1,17 @@
+
 import React from 'react';
+import  "../styles/mainStyles.css"
+import { useNavigate } from "react-router-dom";
+const LandingPage = () => {
+   
+  const navigate = useNavigate();
 
-
-const Main = () => {
-    return (
+  const handleClick = () => {
+    navigate("/register");
+  };
+  
+  
+  return (
         <>
                   <div >
             <h2 className="welcome"> 
@@ -10,7 +19,7 @@ const Main = () => {
             Somos una página
             qué te ayudará a mejorar el cuidado de tus plantas
             </h2>
-            <button className="sign-up">Registrarse</button>
+            <button className="sign-up" onClick={handleClick}>Registrarse</button>
             <p> Unete a nuestra comunidad </p>
             <img src={require ('../img/plant.png')} alt='plant' className="plant"/>
           </div>
@@ -21,4 +30,5 @@ const Main = () => {
     );
 }
 
-export default Main;
+export default LandingPage;
+
