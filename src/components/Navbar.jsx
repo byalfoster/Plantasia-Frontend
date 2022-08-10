@@ -14,14 +14,32 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { CssBaseline } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 const navItems = ["Inicio", "Novedades", "Perfil", "Contacto"];
+const [ inicio, novedades, perfil, contacto ] = navItems;
+
+
 
 function NavBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  
+  const navigation = useNavigate();
+  const perfilRoute = () => {
+    navigation("/login")
+  }
+
+  const homeRoute = () => {
+    navigation("/")
+  }
+
+  const contactRoute = () => {
+    navigation("/about-us")
+  }
+
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -76,12 +94,23 @@ function NavBar(props) {
             PLANTASIA
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block"} }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#000" }}>
-                {item}
-              </Button>
-            ))}
            
+              <Button key={inicio} sx={{ color: "#000" }}  onClick={homeRoute}>
+                {inicio}
+              </Button>
+              {/**const [ inicio, novedades, perfil, contacto ] = navItems; */}
+              <Button key={novedades} sx={{ color: "#000" }} onClick={perfilRoute}>
+                {novedades}
+              </Button>
+
+              <Button key={perfil} sx={{ color: "#000" }} onClick={perfilRoute}>
+                {perfil}
+              </Button>
+
+              <Button key={contacto} sx={{ color: "#000" }} onClick={contactRoute}>
+                {contacto}
+              </Button>
+          
           </Box>
         </Toolbar>
       </AppBar>
