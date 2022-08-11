@@ -14,6 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { CssBaseline } from "@mui/material";
+import SpaSharpIcon from '@mui/icons-material/SpaSharp';
 import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -21,12 +22,12 @@ const navItems = ["Inicio", "Novedades", "Perfil", "Contacto"];
 const [ inicio, novedades, perfil, contacto ] = navItems;
 
 
-
-function NavBar(props) {
+const NavBar = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  
+
   const navigation = useNavigate();
+  
   const perfilRoute = () => {
     navigation("/login")
   }
@@ -39,6 +40,7 @@ function NavBar(props) {
     navigation("/about-us")
   }
 
+ 
 
 
   const handleDrawerToggle = () => {
@@ -54,7 +56,7 @@ function NavBar(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center"}}>
+            <ListItemButton sx={{ textAlign: "center", bgcolor: 'green' } }>
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -87,27 +89,28 @@ function NavBar(props) {
             <MenuIcon />
           </IconButton >
           <Typography
-            variant="h6"
+            variant="h4"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block"} }}
+            fontFamily={'Roboto'}
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block"}, color:'white' }}
           >
+            <SpaSharpIcon sx={{ fontSize: "30px", color: "white", position:"relative", bottom:"5px"  }}/>
             PLANTASIA
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block"} }}>
-           
-              <Button key={inicio} sx={{ color: "#000" }}  onClick={homeRoute}>
+          <Button key={inicio} sx={{ color: "white" , fontSize:"16px"}}  onClick={homeRoute}>
                 {inicio}
               </Button>
               {/**const [ inicio, novedades, perfil, contacto ] = navItems; */}
-              <Button key={novedades} sx={{ color: "#000" }} onClick={perfilRoute}>
+              <Button key={novedades} sx={{ color: "white",fontSize:"16px" }} onClick={perfilRoute}>
                 {novedades}
               </Button>
 
-              <Button key={perfil} sx={{ color: "#000" }} onClick={perfilRoute}>
+              <Button key={perfil} sx={{ color:"white",fontSize:"16px" }} onClick={perfilRoute}>
                 {perfil}
               </Button>
 
-              <Button key={contacto} sx={{ color: "#000" }} onClick={contactRoute}>
+              <Button key={contacto} sx={{ color: "white",fontSize:"16px" }} onClick={contactRoute}>
                 {contacto}
               </Button>
           

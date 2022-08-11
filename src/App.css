@@ -1,10 +1,11 @@
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body{
-  background-image: url(../src/img/backgroundcurve.jpg);
+  background-image: url(../src/img/backgroundcurvee.jpg);
   background-size: cover;
   height: 100vh;
   position: relative;
@@ -38,4 +39,9 @@ input{
   border: none;
   border-bottom: 0.1px solid #000;
 }
-
+.join-us{
+  margin-left: 280px;
+  position: fixed;
+  bottom: 170px;
+  font-size: 25px;
+}
