@@ -11,7 +11,7 @@ import EmailIcon from '@mui/icons-material/Email';
 
 export default function InfoCard(props) {
   return (
-    <Card sx={{ maxWidth: 250, bgcolor: "#43a047", color: "white", boxShadow: 3 }}>
+    <Card sx={{ maxWidth: 250, bgcolor: "#004d40", color: "white", boxShadow: 3 }}>
       <CardMedia
         component="img" 
         height="150"

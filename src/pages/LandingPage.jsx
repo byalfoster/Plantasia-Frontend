@@ -17,14 +17,10 @@ const LandingPage = () => {
           Somos una página qué te ayudará <br />a mejorar el cuidado de tus
           plantas
         </h2>
-
         <button className="sign-up" onClick={handleClick}>
-          Registrarse{" "}
+          REGISTRARSE{" "}
         </button>
-
         <p className="join-us"> Unete a nuestra comunidad </p>
-
-        <img src={require("../img/plant.png")} alt="plant" className="plant" />
       </div>
       <img
         src={require("../img/garden.png")}

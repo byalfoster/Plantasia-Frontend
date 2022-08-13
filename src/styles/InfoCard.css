@@ -1,13 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 .infocard {
     display: grid;
-    grid-template-columns: repeat(2, 300px);
+    grid-template-columns: repeat(4, 300px);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 1px;
     grid-row-gap: 30px;
     justify-items: center;
     justify-content: center;
     }
-
-.card{
-    background-color: rgba(172, 255, 47, 0.574);
+.Weare{
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    justify-content: center;
+}
+.Weare h2{
+    font-size: 80px;
+    font-family: roboto;
+    text-align: center;
+}
+.Weare p{
+    font-size: 30px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
 }

@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 .welcome {
   margin-left: 40px;
-  font-size: 50px;
+  font-size: 55px;
   text-align: left;
   height: 350px;
   right: 200px;
@@ -8,13 +10,14 @@
   padding-top: 250px;
   color: white;
   filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.25));
+  font-family: 'Playfair Display', serif;
 
- 
+
 }
 
 .sign-up {
   background: none;
-  border-radius: 20px;
+  border-radius: 30px;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 15px;
@@ -22,39 +25,36 @@
   color: white;
   border: 1px solid rgb(255, 255, 255);
   margin-left: 40px;
-  margin-top: 100px;
-  font-size: 35px;
+  margin-top: 130px;
+  font-size: 30px;
   background-color: rgba(255, 255, 255, 0.156);
+  font-family: 'Playfair Display', serif;
+
+}
+.join-us{
+  text-align: justify;
+  padding-top: 4px;
+  padding-bottom: 55px;
+  padding-left: 270px;
+  padding-right: 15px;
+  color: white;
+  margin-left: 40px;
+  margin-top: 130px;
+  font-size: 30px;
+  font-family: 'Playfair Display', serif;
+
+
 }
 
-.plant{
-  box-sizing: border-box;
-  overflow: inherit;
-  position: absolute;
-  width: 400px;
-  left: 900px;
-  top: 300px;
-  overflow: hidden;
-  filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.25));
-  }
-
-  .gardener{
+.gardener{
     box-sizing: border-box;
     overflow: inherit;
     position: absolute;
-    width: 500px;
-    left: 700px;
-    top: 200px;
+    width: 700px;
+    left: 850px;
+    top: 150px;
     overflow: hidden;
     z-index: -1;
     filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.25));
   }
 
-
-    .join-us{
-      margin-left: 280px;
-      position: fixed;
-      bottom: 170px;
-      font-size: 25px;
-      color: white;
-    }

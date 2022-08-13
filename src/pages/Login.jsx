@@ -1,6 +1,7 @@
 import React from 'react'
 import  { useState } from 'react'
-import { Grid, Container, Paper, Avatar,Typography,TextField,Button, CssBaseline } from '@mui/material'
+import { Grid, Container, Paper,Typography,TextField,Button, CssBaseline } from '@mui/material'
+import SpaSharpIcon from '@mui/icons-material/SpaSharp';
 
 
 const Login = () => {
@@ -22,43 +23,71 @@ const Login = () => {
     <div>
       <Grid container component='main' >
 			<CssBaseline />
-			<Container component={Paper} elevation={5} maxWidth='xs' >
+			<Container component={Paper} elevation={5} maxWidth='xs' sx={{ 
+				bgcolor: '#004d40',
+				borderRadius: 2,
+			      }} >
 				<div>
-					<Avatar>
-        
-					</Avatar>
-					<Typography component='h1' variant='h5'>Sign In</Typography>
+					<SpaSharpIcon sx={{ 
+						fontSize: "30px", 
+						color: "white", 
+						position:"relative", 
+						top:"85px", 
+						left:'95px'  }}/>
+					<Typography
+					component='h1' 
+					variant='h5' 
+					sx={{textAlign:'center', 
+					     fontSize:'30px', 
+					     color:'white', 
+					     marginTop:'50px', 
+					     marginBottom:'40px',
+						 marginLeft:'30px',
+						 fontFamily:'Roboto' }} > PLANTASIA</Typography>
 					<form >
 						<TextField
+						sx={{
+							marginBottom:'30px',
+							marginTop:'30px',
+							
+						}}
 							fullWidth
 							autoFocus
 							color='primary'
 							margin='normal'
-							variant='outlined'
-							label='Nickname'
-							name='nickname'
-							value={body.nickname}
+							variant='standard'
+							label='Email'
+							name='Email'
+							value={body.email}
 							onChange={handleChange}
 						/>
 						<TextField
 							fullWidth
+							autoFocus
 							type='password'
 							color='primary'
 							margin='normal'
-							variant='outlined'
+							variant='standard'
 							label='Password'
 							name='password'
 							value={body.password}
 							onChange={handleChange}
 						/>
-						<Button
+						<Button sx={{
+							marginTop:'50px',
+							marginBottom:'100px',
+							bgcolor:'transparent',
+							width:'50%',
+							marginLeft:'100px',
+							fontSize:'20px'
+						}}
 							fullWidth
 							variant='contained'
-							color='secondary'
+							color='primary'
 						
 							onClick={() => onSubmit()}
 						>
-							Sign In
+							Iniciar Sesión
 						</Button>
 					</form>
 				</div>
