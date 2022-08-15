@@ -1,0 +1,15 @@
+axios.get("URL",{ 
+    "headers":{
+        "Authorization":`Bearer ${JSON.parse(window.localStorage.getItem("token"))}`
+    }
+})
+
+
+axios.post("URL", {
+    plantita,
+    dueño
+},{
+    "headers":{
+        "Authorization":`Bearer ${JSON.parse(window.localStorage.getItem("token"))}`
+    }
+})

@@ -1,15 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import {
-  Grid,
-  Container,
-  Paper,
-  Typography,
-  TextField,
-  Button,
-  CssBaseline,
-} from "@mui/material";
-import SpaSharpIcon from "@mui/icons-material/SpaSharp";
+import React, { useState } from "react";
+import { Grid, Container, Paper,Typography,TextField,Button, CssBaseline } from '@mui/material'
+import SpaSharpIcon from '@mui/icons-material/SpaSharp';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -64,12 +55,12 @@ const Login = () => {
       setLegendEmail("complete el campo solicitado");
       alert(" ingrese los datos requeridos para el registro por favor ");
     } else {
-      console.log({
-        email,
-        password,
-      });
-
-      console.log("ok");
+      //implementar la llamada al back con axios
+      //guardar token que me va a devolver la llamada en localStorage
+      /**
+       * window.localStorage.setItem("token",JSON.stringify(res.data.token) )
+       * cuando hago logout hago window.localStorage.removeItem("token")
+       */
     }
   };
 
@@ -138,9 +129,9 @@ const Login = () => {
                 variant="standard"
                 label="Password"
                 name="password"
-				onChange={passwordValidation}
-				error={errorPassword}
-				helperText={legendPasword}
+                onChange={passwordValidation}
+                error={errorPassword}
+                helperText={legendPasword}
               />
               <Button
                 sx={{
@@ -154,7 +145,7 @@ const Login = () => {
                 fullWidth
                 variant="contained"
                 color="primary"
-				onClick={handleLogin}
+                onClick={handleLogin}
               >
                 Iniciar Sesión
               </Button>
@@ -165,5 +156,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

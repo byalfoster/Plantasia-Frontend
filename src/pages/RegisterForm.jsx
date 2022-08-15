@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import axios from "axios"
+
 
 const RegisterForm = () => {
   const [user, setUser] = useState("");
   const [errorUser, setErrorUser] = useState(false);
   const [legendUser, setLegendUser] = useState("");
+  const [logged, setIsLogged] = useState("");
 
-  const [data, setData] = useState("");
+  const navigate = useNavigate()
+
+  const [nameAndSurname, setData] = useState("");
   const [errorData, setErrorData] = useState(false);
   const [legendData, setLegendData] = useState("");
 
@@ -20,11 +26,10 @@ const RegisterForm = () => {
 
   const emailExp = /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/;
   const passwordExp = /^[a-z0-9_-]{6,18}$/;
-  const userExp = /^[a-z0-9_-]{3,6}$/;
+  const userExp = /^[a-z0-9_-]{3,8}$/;
   const dataExp = /[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
 
   const userNameValidation = (event) => {
-    event.preventDefault();
     setUser(event.target.value);
 
     if (!userExp.test(user)) {
@@ -37,10 +42,9 @@ const RegisterForm = () => {
   };
 
   const dataValidation = (event) => {
-    event.preventDefault();
     setData(event.target.value);
 
-    if (!dataExp.test(data)) {
+    if (!dataExp.test(nameAndSurname)) {
       setErrorData(true);
       setLegendData("por favor escriba su nombre y apellido correspondiente");
     } else {
@@ -50,7 +54,6 @@ const RegisterForm = () => {
   };
 
   const emailValidation = (event) => {
-    event.preventDefault();
     setEmail(event.target.value);
 
     if (!emailExp.test(email)) {
@@ -63,7 +66,6 @@ const RegisterForm = () => {
   };
 
   const passwordValidation = (event) => {
-    event.preventDefault();
     setPassword(event.target.value);
 
     if (!passwordExp.test(password)) {
@@ -76,45 +78,47 @@ const RegisterForm = () => {
   };
 
   const handleLogin = (event) => {
-    event.preventDefault();
-
     setUser(event.target.value);
     setData(event.target.value);
     setEmail(event.target.value);
     setPassword(event.target.value);
 
     if (user === "") {
-      
       setErrorUser(true);
       setLegendUser("complete el campo solicitado");
       alert(" ingrese nombre de usuario para el registro por favor ");
-    } else if (data === "") {
-     
+    } else if (nameAndSurname === "") {
       setErrorData(true);
       setLegendData("complete el campo solicitado");
       alert(" ingrese nombre y apellido para el registro por favor ");
     } else if (email.length === 0) {
-     
-      setErrorEmail(true)
-      setLegendEmail("complete el campo solicitado")
-      alert(" ingrese los datos requeridos para el registro por favor ");
+      setErrorEmail(true);
+      setLegendEmail("complete el campo solicitado");
+      alert(" ingrese un email para completar el registro por favor ");
     } else if (password.length === 0) {
-     
       setErrorPassword(true);
-      setLegendEmail("complete el campo solicitado")
+      setLegendEmail(
+        "se requiere de una contraseña para el registro solicitado"
+      );
       alert(" ingrese los datos requeridos para el registro por favor ");
     } else {
-      console.log({
-        user,
-        data,
-        email,
-        password,
-      });
-
-      console.log("ok");
+      axios
+        .post("http://localhost:3000/auth/register", {
+          username: user,
+          nameAndSurname,
+          email,
+          password,
+        })
+        .then((res) => {
+          if (res.data.status === "OK") {
+            navigate("/login")
+            
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-
-    //condición ? expr1 : expr2
   };
 
   return (
@@ -193,4 +197,3 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
-

@@ -1,6 +1,9 @@
 import React from "react";
 import "../styles/mainStyles.css";
 import { useNavigate } from "react-router-dom";
+
+
+
 const LandingPage = () => {
   const navigate = useNavigate();
 
@@ -17,9 +20,11 @@ const LandingPage = () => {
           Somos una página qué te ayudará <br />a mejorar el cuidado de tus
           plantas
         </h2>
+
         <button className="sign-up" onClick={handleClick}>
-          REGISTRARSE{" "}
+          Registrarse
         </button>
+
         <p className="join-us"> Unete a nuestra comunidad </p>
       </div>
       <img
