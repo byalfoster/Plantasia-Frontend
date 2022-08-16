@@ -19,6 +19,7 @@ import PlantCard from "./components/PlantCard";
 
 
 function App() {
+  
   const [isLogged, setIsLogged] = useState(
     window.localStorage.getItem("token")
   );
@@ -29,6 +30,7 @@ function App() {
     setIsLogged(window.localStorage.getItem("token"));
   }, [location]);
 
+
   return (
     <div className="App">
       
@@ -38,9 +40,15 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/news" element= {<News />} />
-          <Route path="/profile" element= {<Profile />} />
-
+          <Route path="/news" element={<News />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute isLogged={isLogged}>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
  
     </div>

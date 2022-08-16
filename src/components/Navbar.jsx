@@ -1,5 +1,5 @@
 import * as React from "react";
-import PropTypes from "prop-types";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -29,11 +29,15 @@ const NavBar = (props) => {
   const navigation = useNavigate();
 
   const perfilRoute = () => {
-    navigation("/Profile");
+    navigation("/login");
   };
 
   const homeRoute = () => {
     navigation("/");
+  };
+
+  const newsRoute = () => {
+    navigation("/news");
   };
 
   const contactRoute = () => {
@@ -119,7 +123,7 @@ const NavBar = (props) => {
               <Button
                 key={novedades}
                 sx={{ color: "white", fontSize: "16px" }}
-                onClick={perfilRoute}
+                onClick={newsRoute}
               >
                 {novedades}
               </Button>
@@ -171,12 +175,5 @@ const NavBar = (props) => {
   );
 };
 
-NavBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
-export default NavBar;
+export default NavBar

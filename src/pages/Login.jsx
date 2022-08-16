@@ -1,6 +1,16 @@
 import React, { useState } from "react";
-import { Grid, Container, Paper,Typography,TextField,Button, CssBaseline } from '@mui/material'
-import SpaSharpIcon from '@mui/icons-material/SpaSharp';
+import {
+  Grid,
+  Container,
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  CssBaseline,
+} from "@mui/material";
+import SpaSharpIcon from "@mui/icons-material/SpaSharp";
+import axios from "axios";
+import Profile from "../pages/Profile";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +20,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [legendPasword, setLegendPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState(false);
+
+  const [isLogged, setIsLogged] = useState(false);
+  const [token, setToken] = useState("");
 
   const emailExp = /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/;
   const passwordExp = /^[a-z0-9_-]{6,18}$/;
@@ -61,104 +74,133 @@ const Login = () => {
        * window.localStorage.setItem("token",JSON.stringify(res.data.token) )
        * cuando hago logout hago window.localStorage.removeItem("token")
        */
+
+      axios
+        .post(
+          "http://localhost:3000/auth/login",
+          { email, password },
+          {
+            headers: {
+              Authorization: `Bearer ${JSON.parse(
+                window.localStorage.getItem("token")
+              )}`,
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.status === "logged in") {
+            localStorage.setItem("Token", JSON.stringify(res.data.token));
+            localStorage.setItem("Email", JSON.stringify(email));
+            setIsLogged(() => true);
+            console.log(res.data.token);
+            console.log("estas adentro de plantasia");
+          }
+        })
+        .catch((err) => {
+          console.log(err.name.message);
+        });
     }
   };
 
   return (
     <div>
-      <Grid container component="main">
-        <CssBaseline />
-        <Container
-          component={Paper}
-          elevation={5}
-          maxWidth="xs"
-          sx={{
-            bgcolor: "#004d40",
-            borderRadius: 2,
-          }}
-        >
-          <div>
-            <SpaSharpIcon
-              sx={{
-                fontSize: "30px",
-                color: "white",
-                position: "relative",
-                top: "85px",
-                left: "95px",
-              }}
-            />
-            <Typography
-              component="h1"
-              variant="h5"
-              sx={{
-                textAlign: "center",
-                fontSize: "30px",
-                color: "white",
-                marginTop: "50px",
-                marginBottom: "40px",
-                marginLeft: "30px",
-                fontFamily: "Roboto",
-              }}
-            >
-              {" "}
-              PLANTASIA
-            </Typography>
-            <form>
-              <TextField 
-              InputLabelProps={{
-                style: { color: '#fff' }
-                }}
+      {isLogged ? (
+        <Profile />
+      ) : (
+        <Grid container component="main">
+          <CssBaseline />
+          <Container
+            component={Paper}
+            elevation={5}
+            maxWidth="xs"
+            sx={{
+              bgcolor: "#004d40",
+              borderRadius: 2,
+            }}
+          >
+            <div>
+              <SpaSharpIcon
                 sx={{
-                  marginBottom: "30px",
-                  marginTop: "30px",
+                  fontSize: "30px",
+                  color: "white",
+                  position: "relative",
+                  top: "85px",
+                  left: "95px",
                 }}
-                fullWidth
-                autoFocus
-                color="secondary"
-                margin="normal"
-                variant="standard"
-                label="Email"
-                name="Email"
-                onChange={emailValidation}
-                error={errorEmail}
-                helperText={legendEmail}
               />
-              <TextField
-              InputLabelProps={{
-                style: { color: '#fff' }
-                }}
-                fullWidth
-                autoFocus
-                type="password"
-                color="secondary"
-                margin="normal"
-                variant="standard"
-                label="Password"
-                name="password"
-                onChange={passwordValidation}
-                error={errorPassword}
-                helperText={legendPasword}
-              />
-              <Button
+              <Typography
+                component="h1"
+                variant="h5"
                 sx={{
+                  textAlign: "center",
+                  fontSize: "30px",
+                  color: "white",
                   marginTop: "50px",
-                  marginBottom: "100px",
-                  bgcolor: "transparent",
-                  width: "50%",
-                  marginLeft: "100px",
-                  fontSize: "20px",
+                  marginBottom: "40px",
+                  marginLeft: "30px",
+                  fontFamily: "Roboto",
                 }}
-                fullWidth
-                variant="contained"
-                color="primary"
-                onClick={handleLogin}
               >
-                Iniciar Sesión
-              </Button>
-            </form>
-          </div>
-        </Container>
-      </Grid>
+                {" "}
+                PLANTASIA
+              </Typography>
+              <form>
+                <TextField
+                  InputLabelProps={{
+                    style: { color: "#fff" },
+                  }}
+                  sx={{
+                    marginBottom: "30px",
+                    marginTop: "30px",
+                  }}
+                  fullWidth
+                  autoFocus
+                  color="secondary"
+                  margin="normal"
+                  variant="standard"
+                  label="Email"
+                  name="Email"
+                  onChange={emailValidation}
+                  error={errorEmail}
+                  helperText={legendEmail}
+                />
+                <TextField
+                  InputLabelProps={{
+                    style: { color: "#fff" },
+                  }}
+                  fullWidth
+                  autoFocus
+                  type="password"
+                  color="secondary"
+                  margin="normal"
+                  variant="standard"
+                  label="Password"
+                  name="password"
+                  onChange={passwordValidation}
+                  error={errorPassword}
+                  helperText={legendPasword}
+                />
+                <Button
+                  sx={{
+                    marginTop: "50px",
+                    marginBottom: "100px",
+                    bgcolor: "transparent",
+                    width: "50%",
+                    marginLeft: "100px",
+                    fontSize: "20px",
+                  }}
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  onClick={handleLogin}
+                >
+                  Iniciar Sesión
+                </Button>
+              </form>
+            </div>
+          </Container>
+        </Grid>
+      )}
     </div>
   );
 };
