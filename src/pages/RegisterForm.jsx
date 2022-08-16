@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
+import { Grid, Container, Paper,Typography,TextField,Button, CssBaseline } from '@mui/material'
+import SpaSharpIcon from '@mui/icons-material/SpaSharp';
+
 
 
 const RegisterForm = () => {
   const [user, setUser] = useState("");
   const [errorUser, setErrorUser] = useState(false);
   const [legendUser, setLegendUser] = useState("");
-  const [logged, setIsLogged] = useState("");
 
   const navigate = useNavigate()
 
@@ -122,10 +123,49 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="form">
-      <h1>REGISTRO</h1>
-      <form>
+<div>
+<Grid container component="main">
+        <CssBaseline />
+        <Container
+          component={Paper}
+          elevation={5}
+          maxWidth="xs"
+          sx={{
+            bgcolor: "#004d40",
+            borderRadius: 2,
+          }}
+        >
+          <div>
+            <SpaSharpIcon
+              sx={{
+                fontSize: "30px",
+                color: "white",
+                position: "relative",
+                top: "85px",
+                left: "95px",
+              }}
+            />
+            <Typography
+              component="h1"
+              variant="h5"
+              sx={{
+                textAlign: "center",
+                fontSize: "30px",
+                color: "white",
+                marginTop: "50px",
+                marginBottom: "40px",
+                marginLeft: "30px",
+                fontFamily: "Roboto",
+              }}
+            >
+              {" "}
+              PLANTASIA
+            </Typography>
+            <form>
         <TextField
+        InputLabelProps={{
+          style: { color: '#fff' }
+          }} 
           type="text"
           label="username"
           name="username"
@@ -133,14 +173,17 @@ const RegisterForm = () => {
           error={errorUser}
           helperText={legendUser}
           fullWidth
+          color= 'secondary'
           autoFocus
-          color="primary"
           margin="normal"
-          variant="outlined"
+          variant="standard"
           required
         />
 
         <TextField
+        InputLabelProps={{
+          style: { color: '#fff' }
+          }}
           type="text"
           label="nombre y apellido"
           name="nombre y apellido"
@@ -149,13 +192,18 @@ const RegisterForm = () => {
           helperText={legendData}
           fullWidth
           autoFocus
-          color="primary"
+          color="secondary"
           margin="normal"
-          variant="outlined"
+          variant="standard"
           required
         />
 
-        <TextField
+        <TextField sx={{
+          marginTop: "30px",
+        }}
+        InputLabelProps={{
+          style: { color: '#fff', bgcolor:'green' }
+          }}
           label="email"
           name="email"
           onChange={emailValidation}
@@ -163,13 +211,18 @@ const RegisterForm = () => {
           helperText={legendEmail}
           fullWidth
           autoFocus
-          color="primary"
+          color="secondary"
           margin="normal"
-          variant="outlined"
+          variant="standard"
           required
         />
 
-        <TextField
+        <TextField sx={{
+          marginTop: "30px",
+        }}
+        InputLabelProps={{
+          style: { color: '#fff' }
+          }}
           label="password"
           type="password"
           onChange={passwordValidation}
@@ -177,14 +230,23 @@ const RegisterForm = () => {
           helperText={legendPasword}
           fullWidth
           autoFocus
-          color="primary"
+          color="secondary"
           margin="normal"
-          variant="outlined"
+          variant="standard"
           required
         />
 
         <Button
-          fullWidth
+          sx={{
+            marginTop: "50px",
+            marginBottom: "100px",
+            bgcolor: "transparent",
+            width: "50%",
+            marginLeft: "100px",
+            fontSize: "20px",
+          }}
+          width="50%"
+          left="50%"
           variant="contained"
           color="primary"
           onClick={handleLogin}
@@ -192,7 +254,11 @@ const RegisterForm = () => {
           Registrarse
         </Button>
       </form>
-    </div>
+      </div>
+    </Container>
+  </Grid>
+
+</div>
   );
 };
 

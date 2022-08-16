@@ -29,7 +29,7 @@ const NavBar = (props) => {
   const navigation = useNavigate();
 
   const perfilRoute = () => {
-    navigation("/login");
+    navigation("/Profile");
   };
 
   const homeRoute = () => {

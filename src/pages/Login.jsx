@@ -104,14 +104,17 @@ const Login = () => {
               PLANTASIA
             </Typography>
             <form>
-              <TextField
+              <TextField 
+              InputLabelProps={{
+                style: { color: '#fff' }
+                }}
                 sx={{
                   marginBottom: "30px",
                   marginTop: "30px",
                 }}
                 fullWidth
                 autoFocus
-                color="primary"
+                color="secondary"
                 margin="normal"
                 variant="standard"
                 label="Email"
@@ -121,10 +124,13 @@ const Login = () => {
                 helperText={legendEmail}
               />
               <TextField
+              InputLabelProps={{
+                style: { color: '#fff' }
+                }}
                 fullWidth
                 autoFocus
                 type="password"
-                color="primary"
+                color="secondary"
                 margin="normal"
                 variant="standard"
                 label="Password"

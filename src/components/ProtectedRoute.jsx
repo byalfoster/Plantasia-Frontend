@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+/*import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ isLogged, children }) => {
   if (!isLogged) {
@@ -8,4 +8,4 @@ const ProtectedRoute = ({ isLogged, children }) => {
   return children;
 };
 
-export default ProtectedRoute;
+export default ProtectedRoute;*/

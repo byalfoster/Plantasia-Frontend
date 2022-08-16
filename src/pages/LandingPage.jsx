@@ -21,11 +21,9 @@ const LandingPage = () => {
           plantas
         </h2>
 
-        <button className="sign-up" onClick={handleClick}>
+        <button className="sign-up" onClick ={handleClick}>
           Registrarse
         </button>
-
-        <p className="join-us"> Unete a nuestra comunidad </p>
       </div>
       <img
         src={require("../img/garden.png")}

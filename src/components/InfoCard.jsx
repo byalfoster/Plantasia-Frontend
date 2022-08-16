@@ -9,13 +9,25 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 
+
+
 export default function InfoCard(props) {
+
+const handleClick = () => {
+  window.open( props.linkedin, '_blank');
+};
+const handleClick2 = () => {
+  window.open( props.github, '_blank');
+}
+const handleClick3 = () => {
+  window.open( props.email, '_blank');
+}
   return (
-    <Card sx={{ maxWidth: 250, bgcolor: "#43a047", color: "white", boxShadow: 3 }}>
+    <Card sx={{ maxWidth: 250, bgcolor: "#004d40", color: "white", boxShadow: 3 }}>
       <CardMedia
         component="img" 
-        height="150"
-        image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+        height="auto"
+        image={props.imageUrl}
         alt="profile"
       />
       <CardContent>
@@ -27,10 +39,16 @@ export default function InfoCard(props) {
         </Typography>
       </CardContent>
       <CardActions >
-        <Button sx={{color:'white'}} size="big"><LinkedInIcon sx={{ fontSize: 30 }} /></Button>
-        <Button sx={{color:'white'}} size="big"><GitHubIcon sx={{ fontSize: 30 }} /></Button>
-        <Button sx={{color:'white'}} size="big"><EmailIcon sx={{ fontSize: 30 }} /></Button>
+        <Button  sx={{color:'white'}} size="big"> 
+        <LinkedInIcon sx={{ fontSize: 30 }} onClick={handleClick} />
+        </Button>
+        <Button sx={{color:'white'}} size="big">
+          <GitHubIcon sx={{ fontSize: 30 }} onClick={handleClick2} />
+        </Button>
+        <Button sx={{color:'white'}} size="big">
+          <EmailIcon sx={{ fontSize: 30 }} onClick={handleClick3} />
+        </Button>
       </CardActions>
-    </Card>
+    </Card> 
   );
 }
