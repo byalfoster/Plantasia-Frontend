@@ -3,6 +3,7 @@ import PlantCard from "../components/PlantCard";
 import Profile from "../components/Profile";
 import Grid from "@mui/material/Grid";
 import "../styles/ProfilePlantStyle.css";
+
 import PostPlant from "../components/PostPlant";
 
 const profile = () => {

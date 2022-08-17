@@ -3,6 +3,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 
+import axios from "axios";
+
 export default function PostPlant() {
   const [namePlant, setNamePlant] = useState("");
   const [description, setDescription] = useState("");
@@ -36,6 +38,21 @@ export default function PostPlant() {
       tips,
       imgUrl,
     });
+
+    axios
+      .post(
+        "http://localhost:3000/api/plants",
+        { namePlant, description, tips, imgUrl },
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(
+              window.localStorage.getItem("token")
+            )}`,
+          },
+        }
+      )
+      .then((res) => console.log(res.status))
+      .catch((err) => err.response.data);
   };
 
   return (
@@ -66,21 +83,21 @@ export default function PostPlant() {
           id="filled-basic"
           label="Descripción"
           variant="filled"
-          onChangue={handleDescription}
+          onChange={handleDescription}
         />
         <TextField
           sx={{ bgcolor: "whitesmoke", fontStyle: "italic" }}
           id="filled-basic"
           label="tip"
           variant="filled"
-          onChangue={handleTips}
+          onChange={handleTips}
         />
         <TextField
           sx={{ bgcolor: "whitesmoke", fontStyle: "italic" }}
           id="filled-basic"
           label="Url de imagen"
           variant="filled"
-          onChangue={handleImgUrl}
+          onChange={handleImgUrl}
         />
         <Button
           sx={{ color: "white" }}
