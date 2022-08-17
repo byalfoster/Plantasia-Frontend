@@ -11,12 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.sign-up{
-  background: none;
-  border-radius: 12px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 15px;
-  padding-right: 15px;
-  border: 1px solid #000;
-}

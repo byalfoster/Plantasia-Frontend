@@ -14,7 +14,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useState, useEffect } from "react";
-import PlantCard from "./components/PlantCard";
+
 
 
 
@@ -52,6 +52,7 @@ function App() {
         </Routes>
  
     </div>
+
   );
 }
 

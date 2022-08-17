@@ -27,7 +27,7 @@ const RegisterForm = () => {
 
   const emailExp = /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/;
   const passwordExp = /^[a-z0-9_-]{6,18}$/;
-  const userExp = /^[a-z0-9_-]{3,8}$/;
+  const userExp = /^[a-z0-9_-]{3,15}$/;
   const dataExp = /[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
 
   const userNameValidation = (event) => {

@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: repeat(4, 380px);
     grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 30px;
-    grid-row-gap: 30px;
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
     justify-items: center;
     justify-content:right ;
     margin-right: 35px;

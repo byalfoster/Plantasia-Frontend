@@ -26,12 +26,10 @@ const LandingPage = () => {
         </button>
       </div>
       <img
-        src={require("../img/garden.png")}
+        src={require("../img/gardener.png")}
         alt="gardener"
         className="gardener"
       />
-      <div className="shadow"></div>
-      <div className="curve"></div>
     </>
   );
 };
