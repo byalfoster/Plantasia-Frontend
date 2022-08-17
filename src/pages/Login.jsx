@@ -15,27 +15,24 @@ import Profile from "../pages/Profile";
 import { useLocation } from "react-router-dom";
 
 const Login = () => {
-  
- const location = useLocation();
- 
- useEffect(() => {
-   setIsLogged(window.localStorage.getItem("token"));
-   
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsLogged(window.localStorage.getItem("token"));
   }, [location]);
-  
-  
+
   const [email, setEmail] = useState("");
   const [errorEmail, setErrorEmail] = useState(false);
   const [legendEmail, setLegendEmail] = useState("");
-  
+
   const [password, setPassword] = useState("");
   const [legendPasword, setLegendPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState(false);
-  
+
   const [isLogged, setIsLogged] = useState(
     window.localStorage.getItem("token")
   );
-  
+
   const emailExp = /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/;
   const passwordExp = /^[a-z0-9_-]{6,18}$/;
 
@@ -80,10 +77,6 @@ const Login = () => {
       setLegendEmail("complete el campo solicitado");
       alert(" ingrese los datos requeridos para el registro por favor ");
     } else {
-      //implementar la llamada al back con axios
-      //guardar token que me va a devolver la llamada en localStorage
-      
-
       axios
         .post(
           "http://localhost:3000/auth/login",
@@ -117,8 +110,6 @@ const Login = () => {
     <div>
       {isLogged ? (
         <Profile />
-        
-        
       ) : (
         <Grid container component="main">
           <CssBaseline />
@@ -218,17 +209,3 @@ const Login = () => {
   );
 };
 export default Login;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
