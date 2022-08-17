@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import SpaSharpIcon from "@mui/icons-material/SpaSharp";
 import axios from "axios";
-import Home from "../pages/Home"
+
 import Profile from "../pages/Profile";
 import { useLocation } from "react-router-dom";
 
@@ -104,10 +104,7 @@ const Login = () => {
     } else {
       //implementar la llamada al back con axios
       //guardar token que me va a devolver la llamada en localStorage
-      /**
-       * window.localStorage.setItem("token",JSON.stringify(res.data.token) )
-       * cuando hago logout hago window.localStorage.removeItem("token")
-       */
+      
 
       axios
         .post(

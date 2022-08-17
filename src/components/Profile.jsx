@@ -7,7 +7,13 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 
+
 export default function Profile() {
+ 
+
+  
+  
+  
   return (
     <>
       <Card
@@ -17,10 +23,15 @@ export default function Profile() {
         <Box
           sx={{ p: 4, display: "flex", bgcolor: "#004d40", maxWidth: "450px" }}
         >
-          <Avatar 
+          <Avatar
             variant="circular"
             src="https://avatars.githubusercontent.com/u/104470261?v=4"
-            sx={{ width: "120px", height: "120px", borderRadius: "50%", marginRight:'30px' }}
+            sx={{
+              width: "120px",
+              height: "120px",
+              borderRadius: "50%",
+              marginRight: "30px",
+            }}
           >
             <image></image>
           </Avatar>
@@ -46,14 +57,16 @@ export default function Profile() {
               Byalfoster
             </Typography>
             <Stack spacing={2} direction="row">
-              <Button size ="small"
+              <Button
+                size="small"
                 sx={{ color: "white", fontSize: "10px" }}
                 variant="outlined"
               >
                 Editar
               </Button>
-              <Button size="small"
-                sx={{ color: "white", fontSize: "10px", }}
+              <Button
+                size="small"
+                sx={{ color: "white", fontSize: "10px" }}
                 variant="outlined"
               >
                 Cerrar Sesión
