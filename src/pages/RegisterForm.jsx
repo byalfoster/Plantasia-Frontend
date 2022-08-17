@@ -240,7 +240,7 @@ const RegisterForm = () => {
           sx={{
             marginTop: "50px",
             marginBottom: "100px",
-            bgcolor: "transparent",
+            bgcolor: "#00796b",
             width: "50%",
             marginLeft: "100px",
             fontSize: "20px",
