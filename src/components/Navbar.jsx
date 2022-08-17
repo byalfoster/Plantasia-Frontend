@@ -33,7 +33,7 @@ const NavBar = (props) => {
   };
 
   const homeRoute = () => {
-    navigation("/");
+    navigation("/home");
   };
 
   const newsRoute = () => {

@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useState, useEffect } from "react";
+import Home from "./pages/Home";
 
 
 
@@ -46,6 +47,7 @@ function App() {
             element={
               <ProtectedRoute isLogged={isLogged}>
                 <Profile />
+                <Route path="/home" element={ <Home/> } />
               </ProtectedRoute>
             }
           />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Grid,
   Container,
@@ -10,19 +10,53 @@ import {
 } from "@mui/material";
 import SpaSharpIcon from "@mui/icons-material/SpaSharp";
 import axios from "axios";
+import Home from "../pages/Home"
 import Profile from "../pages/Profile";
+import { useLocation } from "react-router-dom";
 
 const Login = () => {
+  /*
+  useEffect(() => {
+    
+    if( isLogged){
+      navigate("/")
+    }
+    
+  })
+
+   <Route
+          path="/profile"
+          element={
+            <ProtectedRoute isLogged={isLogged}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+
+  */
+
+ //const navigate = useNavigate()
+ const location = useLocation();
+ 
+ useEffect(() => {
+   setIsLogged(window.localStorage.getItem("token"));
+   
+  }, [location]);
+  
+  
   const [email, setEmail] = useState("");
   const [errorEmail, setErrorEmail] = useState(false);
   const [legendEmail, setLegendEmail] = useState("");
-
+  
   const [password, setPassword] = useState("");
   const [legendPasword, setLegendPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState(false);
-
-  const [isLogged, setIsLogged] = useState(false);
-  const [token, setToken] = useState("");
+  
+  const [isLogged, setIsLogged] = useState(
+    window.localStorage.getItem("token")
+  );
+  //const [isLogged, setIsLogged] = useState(false);
+  //const [token, setToken] = useState("");
 
   const emailExp = /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/;
   const passwordExp = /^[a-z0-9_-]{6,18}$/;
@@ -89,8 +123,11 @@ const Login = () => {
         )
         .then((res) => {
           if (res.data.status === "logged in") {
-            localStorage.setItem("Token", JSON.stringify(res.data.token));
-            localStorage.setItem("Email", JSON.stringify(email));
+            localStorage.setItem("token", JSON.stringify(res.data.token));
+            localStorage.setItem(
+              ["email", "password"],
+              JSON.stringify({ email, password })
+            );
             setIsLogged(() => true);
             console.log(res.data.token);
             console.log("estas adentro de plantasia");
@@ -106,6 +143,7 @@ const Login = () => {
     <div>
       {isLogged ? (
         <Profile />
+        
       ) : (
         <Grid container component="main">
           <CssBaseline />
@@ -184,7 +222,7 @@ const Login = () => {
                   sx={{
                     marginTop: "50px",
                     marginBottom: "100px",
-                    bgcolor: "#00796b",
+                    bgcolor: "transparent",
                     width: "50%",
                     marginLeft: "100px",
                     fontSize: "20px",
@@ -205,3 +243,17 @@ const Login = () => {
   );
 };
 export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import {  CardActionArea } from '@mui/material';
 
 
-const HomePlants = [
+const HomePlantCard = [
     {
         imageUrl:"",
         name:"",
@@ -17,7 +17,7 @@ const HomePlants = [
 
 
 
-export default function HomePlants(props) {
+ const HomePlants = (props) => {
     return (
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
@@ -40,3 +40,6 @@ export default function HomePlants(props) {
       </Card>
     );
   }
+
+
+  export default HomePlants
