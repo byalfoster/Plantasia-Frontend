@@ -1,9 +1,4 @@
-import {
-  
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/Navbar";
 import AboutUs from "./pages/AboutUs";
@@ -17,10 +12,7 @@ import { useState, useEffect } from "react";
 import Home from "./pages/Home";
 
 
-
-
 function App() {
-  
   const [isLogged, setIsLogged] = useState(
     window.localStorage.getItem("token")
   );
@@ -31,30 +23,35 @@ function App() {
     setIsLogged(window.localStorage.getItem("token"));
   }, [location]);
 
-
   return (
     <div className="App">
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/news" element={<News />} />
       
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/register" element={<RegisterForm />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/news" element={<News />} />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute isLogged={isLogged}>
-                <Profile />
-                <Route path="/home" element={ <Home/> } />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
- 
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute isLogged={isLogged}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/home"
+          element={
+            <ProtectedRoute isLogged={isLogged}>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        
+      </Routes>
     </div>
-
   );
 }
 

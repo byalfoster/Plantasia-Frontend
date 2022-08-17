@@ -13,3 +13,6 @@ axios.post("URL", {
         "Authorization":`Bearer ${JSON.parse(window.localStorage.getItem("token"))}`
     }
 })
+
+
+{ !isLogout ? ( navigate("/) ) : (  )  }

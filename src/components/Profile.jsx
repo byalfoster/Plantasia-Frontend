@@ -6,14 +6,19 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
- 
+  const navigate = useNavigate();
+  const [logout, setLogout] = useState(null);
 
-  
-  
-  
+  const handleSesion = () => {
+    window.localStorage.removeItem("token");
+    setLogout(() => false);
+    navigate("/");
+  };
+
   return (
     <>
       <Card
@@ -21,7 +26,12 @@ export default function Profile() {
         sx={{ bgcolor: "transparent", borderRadius: 2, boxShadow: 3 }}
       >
         <Box
-          sx={{ p: 4, display: "flex", bgcolor: "#004d40", maxWidth: "450px" }}
+          sx={{
+            p: 4,
+            display: "flex",
+            bgcolor: "#004d40",
+            maxWidth: "450px",
+          }}
         >
           <Avatar
             variant="circular"
@@ -68,6 +78,7 @@ export default function Profile() {
                 size="small"
                 sx={{ color: "white", fontSize: "10px" }}
                 variant="outlined"
+                onClick={handleSesion}
               >
                 Cerrar Sesión
               </Button>

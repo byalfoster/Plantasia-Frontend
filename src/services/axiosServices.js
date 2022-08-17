@@ -22,7 +22,7 @@ export const userLogin = async (data) => {
 
 export const postPlant = async (data) => {
   const response = axios
-    .post("http://localhost:3000/auth/postplant", data, {
+    .post("http://localhost:3000/auth/plants", data, {
       headers: {
         Authorization: `Bearer ${JSON.parse(
           window.localStorage.getItem("token")

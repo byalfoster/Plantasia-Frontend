@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {  CardActionArea } from '@mui/material';
 
-
+/*
 const HomePlantCard = [
     {
         imageUrl:"",
@@ -14,7 +14,7 @@ const HomePlantCard = [
         description:""
     }
 ]
-
+*/
 
 
  const HomePlants = (props) => {
