@@ -1,9 +1,4 @@
-import {
-  
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/Navbar";
 import AboutUs from "./pages/AboutUs";
@@ -17,10 +12,7 @@ import { useState, useEffect } from "react";
 import Home from "./pages/Home";
 
 
-
-
 function App() {
-  
   const [isLogged, setIsLogged] = useState(
     window.localStorage.getItem("token")
   );
@@ -30,7 +22,6 @@ function App() {
   useEffect(() => {
     setIsLogged(window.localStorage.getItem("token"));
   }, [location]);
-
 
   return (
     <div className="App">
@@ -47,7 +38,6 @@ function App() {
         </Routes>
  
     </div>
-
   );
 }
 

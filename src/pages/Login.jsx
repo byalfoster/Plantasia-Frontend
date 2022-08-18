@@ -15,27 +15,7 @@ import Profile from "../pages/Profile";
 import { useLocation } from "react-router-dom";
 
 const Login = () => {
-  /*
-  useEffect(() => {
-    
-    if( isLogged){
-      navigate("/")
-    }
-    
-  })
-
-   <Route
-          path="/profile"
-          element={
-            <ProtectedRoute isLogged={isLogged}>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
-
-  */
-
- //const navigate = useNavigate()
+  
  const location = useLocation();
  
  useEffect(() => {
@@ -55,9 +35,7 @@ const Login = () => {
   const [isLogged, setIsLogged] = useState(
     window.localStorage.getItem("token")
   );
-  //const [isLogged, setIsLogged] = useState(false);
-  //const [token, setToken] = useState("");
-
+  
   const emailExp = /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/;
   const passwordExp = /^[a-z0-9_-]{6,18}$/;
 
@@ -126,7 +104,6 @@ const Login = () => {
               JSON.stringify({ email, password })
             );
             setIsLogged(() => true);
-            console.log(res.data.token);
             console.log("estas adentro de plantasia");
           }
         })
@@ -140,6 +117,7 @@ const Login = () => {
     <div>
       {isLogged ? (
         <Profile />
+        
         
       ) : (
         <Grid container component="main">

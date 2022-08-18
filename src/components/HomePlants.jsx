@@ -7,8 +7,7 @@ import Typography from '@mui/material/Typography';
 import {  CardActionArea } from '@mui/material';
 
 
-export default function HomePlants(props)
- {
+ const HomePlants = (props) => {
     return (
       <Card sx={{ maxWidth: 345, bgcolor: '#dcedc8', borderRadius:2 }}>
         <CardActionArea>
@@ -32,4 +31,5 @@ export default function HomePlants(props)
     );
   }
 
+  export default HomePlants;
 

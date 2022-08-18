@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"
-import { Grid, Container, Paper,Typography,TextField,Button, CssBaseline } from '@mui/material'
-import SpaSharpIcon from '@mui/icons-material/SpaSharp';
-
-
+import axios from "axios";
+import {
+  Grid,
+  Container,
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  CssBaseline,
+} from "@mui/material";
+import SpaSharpIcon from "@mui/icons-material/SpaSharp";
 
 const RegisterForm = () => {
   const [user, setUser] = useState("");
   const [errorUser, setErrorUser] = useState(false);
   const [legendUser, setLegendUser] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [nameAndSurname, setData] = useState("");
   const [errorData, setErrorData] = useState(false);
@@ -112,8 +118,7 @@ const RegisterForm = () => {
         })
         .then((res) => {
           if (res.data.status === "OK") {
-            navigate("/login")
-            
+            navigate("/login");
           }
         })
         .catch((err) => {
@@ -123,8 +128,8 @@ const RegisterForm = () => {
   };
 
   return (
-<div>
-<Grid container component="main">
+    <div>
+      <Grid container component="main">
         <CssBaseline />
         <Container
           component={Paper}
@@ -162,103 +167,104 @@ const RegisterForm = () => {
               PLANTASIA
             </Typography>
             <form>
-        <TextField
-        InputLabelProps={{
-          style: { color: '#fff' }
-          }} 
-          type="text"
-          label="username"
-          name="username"
-          onChange={userNameValidation}
-          error={errorUser}
-          helperText={legendUser}
-          fullWidth
-          color= 'secondary'
-          autoFocus
-          margin="normal"
-          variant="standard"
-          required
-        />
+              <TextField
+                InputLabelProps={{
+                  style: { color: "#fff" },
+                }}
+                type="text"
+                label="username"
+                name="username"
+                onChange={userNameValidation}
+                error={errorUser}
+                helperText={legendUser}
+                fullWidth
+                color="secondary"
+                autoFocus
+                margin="normal"
+                variant="standard"
+                required
+              />
 
-        <TextField
-        InputLabelProps={{
-          style: { color: '#fff' }
-          }}
-          type="text"
-          label="nombre y apellido"
-          name="nombre y apellido"
-          onChange={dataValidation}
-          error={errorData}
-          helperText={legendData}
-          fullWidth
-          autoFocus
-          color="secondary"
-          margin="normal"
-          variant="standard"
-          required
-        />
+              <TextField
+                InputLabelProps={{
+                  style: { color: "#fff" },
+                }}
+                type="text"
+                label="nombre y apellido"
+                name="nombre y apellido"
+                onChange={dataValidation}
+                error={errorData}
+                helperText={legendData}
+                fullWidth
+                autoFocus
+                color="secondary"
+                margin="normal"
+                variant="standard"
+                required
+              />
 
-        <TextField sx={{
-          marginTop: "30px",
-        }}
-        InputLabelProps={{
-          style: { color: '#fff', bgcolor:'green' }
-          }}
-          label="email"
-          name="email"
-          onChange={emailValidation}
-          error={errorEmail}
-          helperText={legendEmail}
-          fullWidth
-          autoFocus
-          color="secondary"
-          margin="normal"
-          variant="standard"
-          required
-        />
+              <TextField
+                sx={{
+                  marginTop: "30px",
+                }}
+                InputLabelProps={{
+                  style: { color: "#fff", bgcolor: "green" },
+                }}
+                label="email"
+                name="email"
+                onChange={emailValidation}
+                error={errorEmail}
+                helperText={legendEmail}
+                fullWidth
+                autoFocus
+                color="secondary"
+                margin="normal"
+                variant="standard"
+                required
+              />
 
-        <TextField sx={{
-          marginTop: "30px",
-        }}
-        InputLabelProps={{
-          style: { color: '#fff' }
-          }}
-          label="password"
-          type="password"
-          onChange={passwordValidation}
-          error={errorPassword}
-          helperText={legendPasword}
-          fullWidth
-          autoFocus
-          color="secondary"
-          margin="normal"
-          variant="standard"
-          required
-        />
+              <TextField
+                sx={{
+                  marginTop: "30px",
+                }}
+                InputLabelProps={{
+                  style: { color: "#fff" },
+                }}
+                label="password"
+                type="password"
+                onChange={passwordValidation}
+                error={errorPassword}
+                helperText={legendPasword}
+                fullWidth
+                autoFocus
+                color="secondary"
+                margin="normal"
+                variant="standard"
+                required
+              />
 
-        <Button
-          sx={{
-            marginTop: "50px",
-            marginBottom: "100px",
-            bgcolor: "#00796b",
-            width: "50%",
-            marginLeft: "100px",
-            fontSize: "20px",
-          }}
-          width="50%"
-          left="50%"
-          variant="contained"
-          color="primary"
-          onClick={handleLogin}
-        >
-          Registrarse
-        </Button>
-      </form>
-      </div>
-    </Container>
-  </Grid>
-
-</div>
+              <Button
+                sx={{
+                  marginTop: "50px",
+                  marginBottom: "100px",
+                  bgcolor: "#00796b",
+                  width: "50%",
+                  marginLeft: "100px",
+                  fontSize: "20px",
+                }}
+                width="50%"
+                left="50%"
+                variant="contained"
+                color="primary"
+                onClick={handleLogin}
+              >
+                Registrarse
+              </Button>
+            </form>
+          </div>
+        </Container>
+      </Grid>
+    </div>
   );
 };
 
