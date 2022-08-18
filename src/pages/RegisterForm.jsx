@@ -111,7 +111,7 @@ const RegisterForm = () => {
     } else {
       axios
         .post("http://localhost:3000/auth/register", {
-          username: user,
+          userName: user,
           nameAndSurname,
           email,
           password,

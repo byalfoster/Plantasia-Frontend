@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import axios from "axios";
 
@@ -10,6 +10,13 @@ export default function PostPlant() {
   const [description, setDescription] = useState("");
   const [tips, setTips] = useState("");
   const [imgUrl, setImgUrl] = useState("");
+
+  useEffect(() => {
+    setNamePlant("");
+    setDescription("");
+    setTips("");
+    setImgUrl("");
+  }, []);
 
   const handleNamePlant = (event) => {
     setNamePlant(event.target.value);
@@ -28,6 +35,7 @@ export default function PostPlant() {
   };
 
   const handleClick = (event) => {
+    event.preventDefault();
     setNamePlant(event.target.value);
     setDescription(event.target.value);
     setTips(event.target.value);
@@ -51,8 +59,10 @@ export default function PostPlant() {
           },
         }
       )
-      .then((res) => console.log(res.status))
-      .catch((err) => err.response.data);
+      .then((res) => {
+        console.log(res.status);
+      })
+      .catch((err) => err.response.message);
   };
 
   return (
