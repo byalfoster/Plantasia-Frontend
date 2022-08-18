@@ -42,15 +42,8 @@ function App() {
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/news" element={<News />} />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute isLogged={isLogged}>
-                <Profile />
-                <Route path="/home" element={ <Home/> } />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/profile" element={<ProtectedRoute isLogged={isLogged}><Profile/></ProtectedRoute>} />
+          <Route path="/home" element={<ProtectedRoute isLogged={isLogged}><Home/></ProtectedRoute>} />
         </Routes>
  
     </div>

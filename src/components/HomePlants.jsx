@@ -7,31 +7,22 @@ import Typography from '@mui/material/Typography';
 import {  CardActionArea } from '@mui/material';
 
 
-const HomePlantCard = [
-    {
-        imageUrl:"",
-        name:"",
-        description:""
-    }
-]
-
-
-
- const HomePlants = (props) => {
+export default function HomePlants(props)
+ {
     return (
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, bgcolor: '#dcedc8', borderRadius:2 }}>
         <CardActionArea>
           <CardMedia
             component="img"
-            height="100%"
+            height="auto"
             image={props.imageUrl}
             alt="image source"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h6" component="div">
               {props.name}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body3" color="text.secondary">
                 {props.description}
             </Typography>
             
@@ -42,4 +33,3 @@ const HomePlantCard = [
   }
 
 
-  export default HomePlants
